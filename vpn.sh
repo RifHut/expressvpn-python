@@ -17,7 +17,7 @@ echo_public_ip
 while true
 do
     # Select a random VPN location from the 20 fastest ones.
-    VPN_LOCATION=$(expressvpn list all | tail -n +4 | head -n 20 | cut -d ' ' -f 1 | shuf | head -n 1)
+    VPN_LOCATION=$(expressvpn list all | tail -n +4 | head -n 50 | cut -d ' ' -f 1 | shuf | head -n 1)
     echo "[$(date +'%H:%M:%S')] New VPN location selected: ${VPN_LOCATION}."
     echo "[$(date +'%H:%M:%S')] Connecting to the location. Please wait up to 15 seconds..."
     expressvpn connect ${VPN_LOCATION} >/dev/null 2>&1
